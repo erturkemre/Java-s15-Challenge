@@ -18,10 +18,10 @@ public class Librarian extends Person implements CRUD{
     }
 
     @Override
-    Role whoyouare() {
+    public Role whoyouare() {
         StringBuilder builder = new StringBuilder();
         builder.append("I am: "+ getFirstName());
-        builder.append("My role is"+ getRole());
+        builder.append(" My role is: "+ getRole());
         System.out.println(builder);
         return null;
     }
@@ -73,9 +73,11 @@ public class Librarian extends Person implements CRUD{
         }
     }
     public void getBookName(List<Book> books, String bookName) {
-        for (Book book : books) {
-            if (book.getName().equals(book)) {
-                System.out.println("Kitap: " + bookName);
+        Iterator<Book> iterator = books.iterator();
+        while(iterator.hasNext()){
+            Book currentBook = iterator.next();
+            if(currentBook.getName().equals(bookName)){
+                System.out.println("Kitap: "+ currentBook);
 
             }
         }
@@ -97,6 +99,46 @@ public class Librarian extends Person implements CRUD{
             System.out.println(book.getName() + " is not in the library.");
         }
     }
+    public void returnLendBook(Map<Reader, Book> borrowedBooks, Book book, Reader reader) {
+        if (borrowedBooks.containsKey(reader)) {
+            Book borrowedBook = borrowedBooks.get(reader);
+
+            if (borrowedBook.equals(book) && borrowedBook.getStatus() == Status.LENT) {
+                borrowedBook.updateStatus(Status.AVAILABLE);
+                borrowedBooks.remove(reader);
+
+                System.out.println(borrowedBook.getName() + " returned by " + reader.getFirstName());
+            } else {
+                System.out.println("Mismatch: The provided book does not match the book borrowed by " + reader.getFirstName() +
+                        " or the book is not currently lent.");
+            }
+        } else {
+            System.out.println(reader.getFirstName() + " did not borrow any book.");
+        }
+    }
+
+
+
+
+    public void addAuthor(Set<Author> authors, Author author) {
+        if (!authors.contains(author)) {
+            authors.add(author);
+            System.out.println("Author added: " + author.getFirstName() + " " + author.getLastName());
+        } else {
+            System.out.println("Author already exists.");
+        }
+    }
+
+    public void addReader(Set<Reader> readers, Reader reader) {
+        if (!readers.contains(reader)) {
+            readers.add(reader);
+            System.out.println("Reader added: " + reader.getFirstName() + " " + reader.getLastName());
+        } else {
+            System.out.println("Reader already exists.");
+        }
+    }
+
+
 
 
 

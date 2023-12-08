@@ -40,6 +40,11 @@ public abstract class Person {
     public Role getRole() {
         return role;
     }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     abstract Role whoyouare();
     @Override
     public boolean equals(Object o) {

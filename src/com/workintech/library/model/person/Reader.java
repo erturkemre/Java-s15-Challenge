@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Reader extends Person{
     private int limit;
-    private Set<Book> borrowed = new HashSet<>();
+
     public Reader(long id, String firstName, String lastName) {
         super(id, firstName, lastName, Role.READER);
         this.limit =5;
@@ -22,13 +22,6 @@ public class Reader extends Person{
         this.limit = limit;
     }
 
-    public Set<Book> getBorrowed() {
-        return borrowed;
-    }
-
-    public void setBorrowed(Set<Book> borrowed) {
-        this.borrowed = borrowed;
-    }
 
     @Override
     Role whoyouare() {

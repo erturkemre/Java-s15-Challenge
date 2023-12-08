@@ -7,7 +7,7 @@ public class Journals extends Book{
     private Category category;
 
     public Journals(long bookID, String title, String author, String ISBN, double price ) {
-        super(bookID, title, author, ISBN, price);
+        super(bookID, title, author, ISBN, price,Status.AVAILABLE);
         this.category = Category.JOURNALS;
     }
 

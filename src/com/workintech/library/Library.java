@@ -30,6 +30,9 @@ public class Library {
     public void setBooks(Book book){
         this.books.add(book);
     }
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
     public Set<Reader> getReaders() {
         return readers;
@@ -37,6 +40,24 @@ public class Library {
 
     public Set<Author> getAuthors() {
         return authors;
+    }
+
+
+
+    public void setReaders(Set<Reader> readers) {
+        this.readers = readers;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+
+    public void setBorrowedBooks(Map<Reader, Book> borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    public void setLibrarian(Librarian librarian) {
+        this.librarian = librarian;
     }
 
     public Map<Reader, Book> getBorrowedBooks() {

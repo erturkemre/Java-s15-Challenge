@@ -12,6 +12,7 @@ public class Book {
     private String ISBN;
     private double price;
     private Status status;
+    private Category category;
 
     public Book(long bookID, String name, String author, String ISBN, double price) {
         this.bookID = bookID;
@@ -38,6 +39,13 @@ public class Book {
         return name;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public String getAuthor() {
         return author;

@@ -13,6 +13,10 @@ public class Author extends Person implements CRUD{
         super(id, firstName, lastName, Role.AUTHOR);
         this.password = password;
     }
+    public Author(long id, String firstName, String lastName) {
+        super(id, firstName, lastName, Role.AUTHOR);
+
+    }
 
 
     public String getPassword() {
